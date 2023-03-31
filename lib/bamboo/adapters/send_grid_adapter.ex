@@ -375,8 +375,7 @@ defmodule Bamboo.SendGridAdapter do
       |> Map.get(:tracking_settings, %{})
       |> Map.put(:subscription_tracking, %{enable: enabled, enable_text: enabled})
 
-    body
-    |> Map.put(:tracking_settings, tracking_settings)
+    Map.put(body, :tracking_settings, tracking_settings)
   end
 
   defp put_subscription_tracking(body, _), do: body
